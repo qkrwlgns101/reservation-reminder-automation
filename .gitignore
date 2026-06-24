@@ -1,0 +1,21 @@
+# OS/editor
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+~$*
+
+# Local exports
+*.inspect.ndjson
+*.log
+
+# Secrets
+.env
+.env.*
+credentials.json
+token.json
+client_secret*.json
+
+# Build archives
+*.zip
+
