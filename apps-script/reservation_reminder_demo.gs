@@ -335,7 +335,7 @@ function createBackupSnapshot_() {
   targets.forEach((name) => {
     const sheet = ss.getSheetByName(name);
     if (!sheet) return;
-    const backupName = trimSheetName_(`${name}_backup_${timestamp}`);
+    const backupName = uniqueSheetName_(ss, `${name}_backup_${timestamp}`);
     const copied = sheet.copyTo(ss).setName(backupName);
     copied.hideSheet();
     created.push(backupName);
@@ -622,6 +622,25 @@ function maskPhone_(value) {
 function truncate_(value, maxLength) {
   const text = String(value || '');
   return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+}
+
+function trimSheetName_(name) {
+  return String(name || 'Sheet')
+    .replace(/[\[\]\*\?\/\\:]/g, '-')
+    .slice(0, 100);
+}
+
+function uniqueSheetName_(ss, baseName) {
+  const trimmedBase = trimSheetName_(baseName);
+  if (!ss.getSheetByName(trimmedBase)) return trimmedBase;
+
+  for (let i = 2; i <= 99; i++) {
+    const suffix = `_${i}`;
+    const candidate = `${trimmedBase.slice(0, 100 - suffix.length)}${suffix}`;
+    if (!ss.getSheetByName(candidate)) return candidate;
+  }
+
+  return `${trimmedBase.slice(0, 88)}_${Date.now()}`;
 }
 
 function appendAuditLog_(ss, action, status, detail) {
