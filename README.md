@@ -88,7 +88,6 @@ See:
 
 - [Monetization model](docs/monetization_model.md)
 - [Free usage limits and backup policy](docs/usage_limits_and_backup_policy.md)
-- [Business kit](business-kit/)
 
 ## Repository Structure
 
@@ -109,13 +108,6 @@ docs/
   monetization_model.md
   github_upload_guide.md
 
-business-kit/
-  one_page_proposal.md
-  pricing_scope.md
-  sales_messages.md
-  customer_discovery_checklist.md
-  demo_script.md
-  pilot_launch_next_steps.md
 ```
 
 ## Quick Start
