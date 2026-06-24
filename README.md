@@ -66,6 +66,7 @@ The free version includes:
 - Google Form setup guide
 - Validation and security check menus
 - Backup and recovery guide
+- Free usage limits and monthly archive policy
 - QA test cases
 
 ## Paid Services You Can Offer
@@ -86,6 +87,7 @@ Recommended paid services:
 See:
 
 - [Monetization model](docs/monetization_model.md)
+- [Free usage limits and backup policy](docs/usage_limits_and_backup_policy.md)
 - [Business kit](business-kit/)
 
 ## Repository Structure
@@ -103,6 +105,7 @@ docs/
   mvp_spec.md
   qa_test_cases.md
   risk_recovery_plan.md
+  usage_limits_and_backup_policy.md
   monetization_model.md
   github_upload_guide.md
 
@@ -129,6 +132,7 @@ business-kit/
    - `예약 자동화 > 사전 점검 실행`
    - `예약 자동화 > 보안 점검 실행`
    - `예약 자동화 > 백업 스냅샷 생성`
+   - `예약 자동화 > 월별 아카이브 파일 생성`
    - `예약 자동화 > 마스킹 뷰 생성`
    - `예약 자동화 > 발송 대기함 갱신`
    - `예약 자동화 > 주간 리포트 갱신`
@@ -142,6 +146,7 @@ After installation, the `예약 자동화` menu adds:
 - `보호 설정 적용`: applies warning protections to key sheets and personal-data ranges
 - `마스킹 뷰 생성`: creates a masked view with hidden names and phone numbers
 - `백업 스냅샷 생성`: creates hidden backup copies of key sheets
+- `월별 아카이브 파일 생성`: copies the whole spreadsheet as a separate monthly archive file in Google Drive
 - `발송 대기함 갱신`: generates send queue rows
 - `주간 리포트 갱신`: refreshes weekly metrics
 - `선택 행 발송완료 처리`: marks selected send queue rows as sent
@@ -164,4 +169,3 @@ MIT License. See [LICENSE](LICENSE).
 ## Disclaimer
 
 This project is not legal, medical, accounting, or security advice. You are responsible for reviewing privacy, security, and regulatory requirements before using this with real customer data.
-

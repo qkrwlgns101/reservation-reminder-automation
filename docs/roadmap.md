@@ -8,6 +8,7 @@
 - Validation checks
 - Security audit
 - Backup snapshot
+- Monthly archive file
 - Masked view
 
 ## v0.2
@@ -16,6 +17,7 @@
 - More industry templates
 - Better dashboard formulas
 - Optional Korean/English message packs
+- Free usage limit guide
 - Sample screenshots
 
 ## v0.3
@@ -23,6 +25,7 @@
 - Optional SMS/email integration examples
 - Monthly report export
 - Better retention cleanup workflow
+- Archive cleanup workflow
 - More security audit checks
 
 ## Future SaaS Ideas
@@ -33,4 +36,3 @@
 - Message approval workflow
 - Customer self-booking page
 - Payment integration
-

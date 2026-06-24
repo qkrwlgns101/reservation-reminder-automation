@@ -58,6 +58,7 @@ function onOpen() {
     .addItem('보호 설정 적용', 'applySecurityProtections')
     .addItem('마스킹 뷰 생성', 'createMaskedView')
     .addItem('백업 스냅샷 생성', 'createBackupSnapshot')
+    .addItem('월별 아카이브 파일 생성', 'createMonthlyArchiveFile')
     .addSeparator()
     .addItem('발송 대기함 갱신', 'refreshSendQueue')
     .addItem('주간 리포트 갱신', 'refreshWeeklyReport')
@@ -105,6 +106,10 @@ function createMaskedView() {
 
 function createBackupSnapshot() {
   runWithLock_('백업 스냅샷 생성', createBackupSnapshot_);
+}
+
+function createMonthlyArchiveFile() {
+  runWithLock_('월별 아카이브 파일 생성', createMonthlyArchiveFile_);
 }
 
 function refreshSendQueue_() {
@@ -342,6 +347,32 @@ function createBackupSnapshot_() {
   });
 
   return `백업 스냅샷 생성 완료: ${created.length}개 시트`;
+}
+
+function createMonthlyArchiveFile_() {
+  const ss = getSpreadsheet_();
+  const spreadsheetFile = DriveApp.getFileById(ss.getId());
+  const timezone = Session.getScriptTimeZone();
+  const monthLabel = Utilities.formatDate(new Date(), timezone, 'yyyy-MM');
+  const archiveName = `${ss.getName()}_archive_${monthLabel}`;
+  const archiveFile = copyFileToSameFolder_(spreadsheetFile, archiveName);
+
+  archiveFile.setDescription([
+    `Monthly archive for ${ss.getName()}`,
+    `Created at ${Utilities.formatDate(new Date(), timezone, 'yyyy-MM-dd HH:mm:ss')}`,
+    'Keep this file private. It may contain personal information.',
+  ].join('\n'));
+
+  return `월별 아카이브 파일 생성 완료: ${archiveFile.getName()}`;
+}
+
+function copyFileToSameFolder_(file, archiveName) {
+  const parents = file.getParents();
+  if (parents.hasNext()) {
+    return file.makeCopy(archiveName, parents.next());
+  }
+
+  return file.makeCopy(archiveName);
 }
 
 function runValidation_(ss) {
