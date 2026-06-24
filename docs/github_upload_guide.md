@@ -87,7 +87,7 @@ Reservation Reminder Automation v0.1.0
 Release notes:
 
 ```text
-Initial public release with Google Sheets template, Apps Script automation, setup guide, privacy/security checks, backup snapshots, masked view, QA test cases, and business kit.
+Initial public release with Google Sheets template, Apps Script automation, setup guide, privacy/security checks, backup snapshots, masked view, and QA test cases.
 ```
 
 ## Suggested README CTA
